@@ -14,7 +14,11 @@ metadata:
 {{ toYaml .Values.deployment.annotations | indent 4 }}
 {{- end }}
 spec:
+  {{- if .Values.deployment.enabled }}
   replicas: 1
+  {{- else }}
+  replicas: 0
+  {{- end }}
   strategy:
     type: {{ .Values.deploymentStrategy }}
   selector:

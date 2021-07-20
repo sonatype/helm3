@@ -72,6 +72,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 deployment:
+  enabled: true
   # # Add annotations in deployment to enhance deployment configurations
   annotations: {}
   # # Add init containers. e.g. to be used to give specific permissions for nexus-data.
