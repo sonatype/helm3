@@ -115,7 +115,7 @@ service:
   enabled: true
   labels: {}
   annotations: {}
-  serviceType: ClusterIP
+  type: ClusterIP
 
 
 route:
