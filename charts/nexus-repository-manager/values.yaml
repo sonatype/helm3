@@ -14,8 +14,12 @@ nexus:
     enabled: false
     registries: []
     #  - host: chart.local
+    #    hostPath: /*
     #    port: 5000
     #    secretName: registrySecret
+    #    annotations: {kubernetes.io/ingress.class: nginx}
+          # kubernetes.io/ingress.class: nginx
+          # kubernetes.io/tls-acme: "true"
   env:
     - name: install4jAddVmParams
       value: "-Xms1200M -Xmx1200M -XX:MaxDirectMemorySize=2G -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"

@@ -51,9 +51,12 @@ metadata:
         {{ toYaml . | indent 4 }}
       {{- end }}
     {{- end }}
-  {{- with $.Values.ingress.annotations }}
+  {{- if $registry.annotations }}
   annotations:
-    {{- toYaml . | nindent 4 }}
+    {{- toYaml $registry.annotations | nindent 4 }}
+  {{- else }}
+  annotations:
+    {{- toYaml $.Values.ingress.annotations | nindent 4 }}
   {{- end }}
 spec:
   tls:
@@ -64,7 +67,11 @@ spec:
     - host: {{ $registry.host }}
       http:
         paths:
+          {{- if $registry.hostPath }}
+          - path: {{ $registry.hostPath }}
+          {{- else }}
           - path: /
+          {{- end }}
             backend:
               serviceName: {{ $fullName | trunc 49 }}-docker-{{ $registry.port }}
               servicePort: {{ $registry.port }}
