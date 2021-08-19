@@ -134,6 +134,12 @@ nexusProxyRoute:
 
 persistence:
   enabled: true
+
+  ## set persistence type
+  ## valid values: pvc | hosPath
+  type: pvc
+  hostPath: /mnt/data
+
   accessMode: ReadWriteOnce
   ## If defined, storageClass: <storageClass>
   ## If set to "-", storageClass: "", which disables dynamic provisioning
@@ -153,9 +159,9 @@ persistence:
 tolerations: []
 
 # # Enable configmap and add data in configmap	
-config:	
-  enabled: false	
-  mountPath: /sonatype-nexus-conf	
+config:
+  enabled: false
+  mountPath: /sonatype-nexus-conf
   data: []
 
 # # To use an additional secret, set enable to true and add data
