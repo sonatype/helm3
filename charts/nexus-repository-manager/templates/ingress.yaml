@@ -36,6 +36,17 @@ spec:
             backend:
               serviceName: {{ $fullName }}
               servicePort: 8081
+    {{- if .Values.ingress.additionalHosts }}
+    {{ range $host := .Values.ingress.additionalHosts }}
+    - host: {{ $host }}
+      http:
+        paths:
+          - path: {{ $.Values.ingress.hostPath }}
+            backend:
+              serviceName: {{ $fullName }}
+              servicePort: 8081
+    {{- end }}
+    {{- end }}
 
 {{ if .Values.nexus.docker.enabled }}
 {{ range $registry := .Values.nexus.docker.registries }}

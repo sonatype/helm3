@@ -103,6 +103,16 @@ spec:
             {{- if .Values.nexus.readinessProbe.timeoutSeconds }}
             timeoutSeconds: {{ .Values.nexus.readinessProbe.timeoutSeconds }}
             {{- end }}
+          startupProbe:
+            httpGet:
+              path: {{ .Values.nexus.startupProbe.path }}
+              port: {{ .Values.nexus.nexusPort }}
+            initialDelaySeconds: {{ .Values.nexus.startupProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.nexus.startupProbe.periodSeconds }}
+            failureThreshold: {{ .Values.nexus.startupProbe.failureThreshold }}
+            {{- if .Values.nexus.startupProbe.timeoutSeconds }}
+            timeoutSeconds: {{ .Values.nexus.startupProbe.timeoutSeconds }}
+            {{- end }}
           volumeMounts:
             - mountPath: /nexus-data	
               name: {{ template "nexus.name" . }}-data

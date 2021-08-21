@@ -59,6 +59,12 @@ nexus:
     failureThreshold: 6
     timeoutSeconds: 10
     path: /
+  startupProbe:
+    initialDelaySeconds: 30
+    periodSeconds: 30
+    failureThreshold: 60 # Super long to wait for the first startup
+    timeoutSeconds: 10
+    path: /
   # hostAliases allows the modification of the hosts file inside a container
   hostAliases: []
   # - ip: "192.168.1.10"
@@ -108,6 +114,9 @@ ingress:
     #     - nexus.local
     #     - nexus-docker.local
     #     - nexus-docker-hosted.local
+  #additionalHosts:
+  #  - internal.example.com
+  #  - external.example.com
 
 
 service:
