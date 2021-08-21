@@ -36,6 +36,9 @@ spec:
             backend:
               serviceName: {{ $fullName }}
               servicePort: 8081
+          {{- if .Values.ingress.additionalPaths}}
+{{ toYaml .Values.ingress.additionalPaths | indent 10 }}
+          {{- end }}
 
 {{ if .Values.nexus.docker.enabled }}
 {{ range $registry := .Values.nexus.docker.registries }}

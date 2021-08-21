@@ -108,7 +108,12 @@ ingress:
     #     - nexus.local
     #     - nexus-docker.local
     #     - nexus-docker-hosted.local
-
+  # Add additional paths (can be used for alb ingress actions)
+  # additionalPaths:
+  #   - path:
+  #     backend:
+  #       serviceName:
+  #       servicePort:
 
 service:
   name: nexus3
