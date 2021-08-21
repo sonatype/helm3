@@ -16,7 +16,7 @@ metadata:
       {{- end }}
     {{- end }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.service.serviceType }}
   ports:
     - port: {{ .Values.nexus.nexusPort }}
       protocol: TCP
