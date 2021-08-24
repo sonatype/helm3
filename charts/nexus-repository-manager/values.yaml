@@ -126,7 +126,7 @@ route:
   annotations:
   # path: /docker
 
-nexusProxyRoute:
+nexusUIRoute:
   enabled: false
   labels:
   annotations:

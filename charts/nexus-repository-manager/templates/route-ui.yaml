@@ -1,17 +1,17 @@
-{{- if .Values.nexusProxyRoute.enabled }}
+{{- if .Values.nexusUIRoute.enabled }}
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: {{ template "nexus.fullname" . }}
-  labels: {{ .Values.nexusProxyRoute.labels }}
+  labels: {{ .Values.nexusUIRoute.labels }}
   annotations:
-    {{- range $key, $value := .Values.nexusProxyRoute.annotations }}
+    {{- range $key, $value := .Values.nexusUIRoute.annotations }}
     {{ $key }}: {{ $value | quote }}
     {{- end }}
 spec:
-  host: {{ .Values.nexusProxyRoute.path }}
+  host: {{ .Values.nexusUIRoute.path }}
   port:
-      targetPort: {{ template "nexus.fullname" . }}
+      targetPort: nexus-ui
   tls:
     insecureEdgeTerminationPolicy: Redirect
     termination: edge
