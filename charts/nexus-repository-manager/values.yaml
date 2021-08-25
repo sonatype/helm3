@@ -152,10 +152,10 @@ persistence:
 
 tolerations: []
 
-# # Enable configmap and add data in configmap	
-config:	
-  enabled: false	
-  mountPath: /sonatype-nexus-conf	
+# # Enable configmap and add data in configmap
+config:
+  enabled: false
+  mountPath: /sonatype-nexus-conf
   data: []
 
 # # To use an additional secret, set enable to true and add data
