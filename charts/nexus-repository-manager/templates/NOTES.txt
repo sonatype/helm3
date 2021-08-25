@@ -15,6 +15,6 @@
   {{- end }}
 {{- else if contains "ClusterIP" .Values.service.serviceType }}
   export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "nexus.name" . }},app.kubernetes.io/instance={{ .Release.Name }}" -o jsonpath="{.items[0].metadata.name}")
-  kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 8081:80
-  Your application is available at http://127.0.0.1
+  kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 8081:{{ $.Values.nexus.nexusPort }}
+  Your application is available at http://127.0.0.1:8081
 {{- end }}
