@@ -2,10 +2,7 @@
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRole
 metadata:
-  labels: {{- include "nexus.labels" . | nindent 4 }}
-  {{- with .Values.nexus.extraLabels }}
-    {{ toYaml . | indent 4 }}
-  {{- end }}
+  labels: {{ include "nexus.labels" . | nindent 4 }}
   name: {{ template "nexus.name" . }}-psp-use
 rules:
 - apiGroups:

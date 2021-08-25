@@ -2,13 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "iqserver.fullname" . }}
-  labels:
-    {{- include "iqserver.labels" . | nindent 4 }}
-    {{- if .Values.iq.extraLabels }}
-      {{- with .Values.iq.extraLabels }}
-        {{ toYaml . | indent 4 }}
-      {{- end }}
-    {{- end }}
+  labels: {{ include "iqserver.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   strategy:

@@ -3,13 +3,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: {{ template "iqserver.fullname" . }}-data
-  labels:
-{{ include "iqserver.labels" . | indent 4 }}
-    {{- if .Values.iq.extraLabels }}
-      {{- with .Values.iq.extraLabels }}
-        {{ toYaml . | indent 4 }}
-      {{- end }}
-    {{- end }}
+  labels: {{ include "iqserver.labels" . | nindent 4 }}
 {{- if .Values.persistence.annotations }}
   annotations:
 {{ toYaml .Values.persistence.annotations | indent 4 }}
@@ -32,13 +26,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: {{ template "iqserver.fullname" . }}-log
-  labels:
-{{ include "iqserver.labels" . | indent 4 }}
-    {{- if .Values.iq.extraLabels }}
-      {{- with .Values.iq.extraLabels }}
-        {{ toYaml . | indent 4 }}
-      {{- end }}
-    {{- end }}
+  labels: {{ include "iqserver.labels" . | nindent 4 }}
 {{- if .Values.persistence.annotations }}
   annotations:
 {{ toYaml .Values.persistence.annotations | indent 4 }}

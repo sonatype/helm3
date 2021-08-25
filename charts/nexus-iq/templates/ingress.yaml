@@ -10,13 +10,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
-  labels:
-    {{- include "iqserver.labels" . | nindent 4 }}
-    {{- if .Values.iq.extraLabels }}
-      {{- with .Values.iq.extraLabels }}
-        {{ toYaml . | indent 4 }}
-      {{- end }}
-    {{- end }}
+  labels: {{ include "iqserver.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}

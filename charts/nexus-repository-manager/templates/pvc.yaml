@@ -3,13 +3,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: {{ template "nexus.fullname" . }}-data
-  labels:
-{{ include "nexus.labels" . | indent 4 }}
-    {{- if .Values.nexus.extraLabels }}
-      {{- with .Values.nexus.extraLabels }}
-        {{ toYaml . | indent 4 }}
-      {{- end }}
-    {{- end }}
+  labels: {{ include "nexus.labels" . | nindent 4 }}
 {{- if .Values.persistence.annotations }}
   annotations:
 {{ toYaml .Values.persistence.annotations | indent 4 }}
