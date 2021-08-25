@@ -136,6 +136,7 @@ The following table lists the configurable parameters of the Nexus chart and the
 | `service.labels`                            | Service labels                   | `nil`                                      |
 | `service.annotations`                       | Service annotations              | `nil`                                      |
 | `service.type`                              | Service Type                     | `ClusterIP`                                |
+| `service.loadBalancerIP`                    | Load balancer IP for service     | `nil`                                      |
 | `route.enabled`         | Set to true to create route for additional service | `false` |
 | `route.name`            | Name of route                                      | `docker` |
 | `route.portName`        | Target port name of service                        | `docker` |

@@ -116,6 +116,7 @@ service:
   labels: {}
   annotations: {}
   serviceType: ClusterIP
+  loadBalancerIP:
 
 
 route:
