@@ -31,4 +31,4 @@ command with the `-f` option.
 
 ### Source
 
-Visit https://github.com/sonatype/helm3-charts.
+See the [`sonatype/helm3-charts`](https://github.com/sonatype/helm3-charts) repo.
