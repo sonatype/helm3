@@ -152,7 +152,8 @@ affinity: {}
 persistence:
   enabled: true
   accessMode: ReadWriteOnce
-  storageSize: 1Gi
+  dataStorageSize: 1Gi
+  logStorageSize: 1Gi
 
   # # If defined, storageClass: <storageClass>
   # # If set to "-", storageClass: "", which disables dynamic provisioning

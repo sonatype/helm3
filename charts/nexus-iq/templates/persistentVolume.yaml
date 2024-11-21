@@ -15,7 +15,7 @@ spec:
   accessModes:
     - {{ .Values.persistence.accessMode }}
   capacity:
-    storage: {{ .Values.persistence.storageSize }}
+    storage: {{ .Values.persistence.dataStorageSize }}
   persistentVolumeReclaimPolicy: Recycle
   claimRef:
     namespace: {{ .Release.Namespace }}
@@ -57,7 +57,7 @@ spec:
   accessModes:
     - {{ .Values.persistence.accessMode }}
   capacity:
-    storage: {{ .Values.persistence.storageSize }}
+    storage: {{ .Values.persistence.logStorageSize }}
   persistentVolumeReclaimPolicy: Recycle
   claimRef:
     namespace: {{ .Release.Namespace }}

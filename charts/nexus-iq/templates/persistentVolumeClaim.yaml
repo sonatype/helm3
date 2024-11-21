@@ -20,7 +20,7 @@ spec:
     - {{ .Values.persistence.accessMode | quote }}
   resources:
     requests:
-      storage: {{ .Values.persistence.storageSize | quote }}
+      storage: {{ .Values.persistence.dataStorageSize | quote }}
 {{- if .Values.persistence.storageClass }}
 {{- if (eq "-" .Values.persistence.storageClass) }}
   storageClassName: ""
@@ -51,7 +51,7 @@ spec:
     - {{ .Values.persistence.accessMode | quote }}
   resources:
     requests:
-      storage: {{ .Values.persistence.storageSize | quote }}
+      storage: {{ .Values.persistence.logStorageSize | quote }}
 {{- if .Values.persistence.storageClass }}
 {{- if (eq "-" .Values.persistence.storageClass) }}
   storageClassName: ""
