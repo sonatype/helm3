@@ -258,6 +258,7 @@ configYaml:
       "org.eclipse.birt.report.engine.layout.pdf.font.FontConfigReader": WARN
       "org.eclipse.jetty": INFO
       "org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter": INFO   # WARNING: This reveals credentials at DEBUG level
+      "com.networknt.schema": OFF
       "com.sonatype.insight.audit":
         appenders:
           # All appenders set to console
